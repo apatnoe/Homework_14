@@ -34,36 +34,35 @@ function findSightings() {
   
     // get the value property of the input element
     var dateSelected = inputElement.property("value");
-  
+
     // print the value to the console
     console.log(dateSelected);
 
-    // filter the table
+    var table = document.getElementById("ufo-table");
 
-        // var filteredData = tableData.filter(ufoSighting=> ufoSighting.datetime === dateSelected);
-
-    // console.log(filteredData)
-
-    // filteredData.forEach((ufoSighting) => {
-    //     var row = tbody.append("tr");
-    //     Object.entries(ufoSighting).forEach(([key, value]) => {
-    //       var cell = row.append("td");
-    //       cell.text(value);
-    //     });
-    //   });
-
-    for (i = 0; i < tbody.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-          txtValue = td.textContent || td.innerText;
-          if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-          } else {
-            tr[i].style.display = "none";
-          }
+ 	//iterate trough rows
+    for (var i = 1, row; row = table.rows[i]; i++) {
+ 	    if (row.cells[0].innerText === "1/1/2010") {
+             console.log(row.cells[0].innerText);
+        }  
+        else {console.log("no match");}
         }
-      }
+    }
 
 
 
-}
+    // for (i = 1; i < tableData.length; i++) {
+    //     // hide the row initially
+    //     td = tr[1]
+    //     console.log(td)
+    //     }      
+        
+
+
+    //var filteredData = tableData.filter(ufoSighting=> ufoSighting.datetime === dateSelected);
+
+    //console.log(filteredData)
+
+    //tableData = filteredData
+
+
