@@ -38,31 +38,17 @@ function findSightings() {
     // print the value to the console
     console.log(dateSelected);
 
-    var table = document.getElementById("ufo-table");
+    var filteredData = tableData.filter(s =>s.datetime === dateSelected);
 
- 	//iterate trough rows
-    for (var i = 1, row; row = table.rows[i]; i++) {
- 	    if (row.cells[0].innerText === "1/1/2010") {
-             console.log(row.cells[0].innerText);
-        }  
-        else {console.log("no match");}
-        }
+    tbody.html("");
+
+    filteredData.forEach((ufoSighting) => {
+        var row = tbody.append("tr");
+        Object.entries(ufoSighting).forEach(([key, value]) => {
+          var cell = row.append("td");
+          cell.text(value);
+        });
+      });
+
     }
-
-
-
-    // for (i = 1; i < tableData.length; i++) {
-    //     // hide the row initially
-    //     td = tr[1]
-    //     console.log(td)
-    //     }      
-        
-
-
-    //var filteredData = tableData.filter(ufoSighting=> ufoSighting.datetime === dateSelected);
-
-    //console.log(filteredData)
-
-    //tableData = filteredData
-
-
+ 
