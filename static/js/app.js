@@ -38,7 +38,12 @@ function findSightings() {
     // print the value to the console
     console.log(dateSelected);
 
+    if (dateSelected === ""){
+        var filteredData = tableData;    
+    }
+    else {
     var filteredData = tableData.filter(s =>s.datetime === dateSelected);
+    }
 
     tbody.html("");
 
